@@ -1,21 +1,14 @@
-const connect = require('./client');
-//console.log('Connecting ...');
-//connect();
+const { connect } = require('./client');
+const { setupInput, handleUserInput } = require('./input')
+
+console.log('Connecting ...');
+let conn = connect();
+setupInput(conn, handleUserInput);
+
+module.exports = { connect };
 
 
-const setupInput = function() {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding('utf8');
-  stdin.resume();
-  stdin.on('data', handleUserInput = (key) => {
-    if (key === '\u0003') {
-      process.exit();
-  }
-  })
-  return stdin;
-};
 
-setupInput();
+
 
 
