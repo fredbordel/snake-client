@@ -28,6 +28,9 @@ handleUserInput = (key) => {
   if (key === '\u0003') {
     process.exit();
 }
+  if (key === 'm') {
+    connection.write("Say: I'm coming for you!")
+  }
 };
 
 module.exports = { setupInput, handleUserInput };
