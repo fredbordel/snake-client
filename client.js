@@ -9,10 +9,18 @@ const connect = function() {
     port: 50541,
     
   });
+  conn.on('connect', () => {
+    console.log('You successfully connected to the game server. Enjoy!');
+  });
+  conn.on('connect', () => {
+    conn.write(`Name: FRE`);
+  }) 
   //Handling event of client being rejected from server from idling
   conn.on('data', data => {
     console.log('you ded cuz you idled');
   });
+
+
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
 
